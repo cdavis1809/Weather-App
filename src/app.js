@@ -41,8 +41,19 @@ function displayWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.condition.icon);
 }
-let apiKey = "406035333ab93t5b036b8515eob03bf5";
-let city = "Sedona";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayWeather);
+function search(city) {
+  let apiKey = "406035333ab93t5b036b8515eob03bf5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeather);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
