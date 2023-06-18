@@ -34,7 +34,6 @@ function displayWeather(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
-  console.log(response.data);
 }
 
 let apiKey = "406035333ab93t5b036b8515eob03bf5";
