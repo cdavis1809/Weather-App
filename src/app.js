@@ -49,7 +49,6 @@ function search(city) {
 
   axios.get(apiUrl).then(displayWeather);
 }
-search("Orlando");
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -84,3 +83,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
+
+search("Orlando");
