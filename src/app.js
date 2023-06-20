@@ -65,7 +65,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "406035333ab93t5b036b8515eob03bf5";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -88,14 +88,14 @@ function displayWeather(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.icon);
-  celsiusTemp = response.data.temperature.current;
+  fahrenheitTemp = response.data.temperature.current;
 
   getForecast(response.data.coordinates);
 }
 
 function search(city) {
   let apiKey = "406035333ab93t5b036b8515eob03bf5";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayWeather);
 }
@@ -106,24 +106,24 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
 function displayCelsius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
 
-let celsiusTemp = null;
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+let fahrenheitTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
