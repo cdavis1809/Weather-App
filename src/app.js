@@ -32,7 +32,14 @@ function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-
+  let todaysHighElement = document.querySelector("#today-max");
+  todaysHighElement.innerHTML = Math.round(
+    response.data.daily[0].temperature.maximum
+  );
+  let todaysLowElement = document.querySelector("#today-min");
+  todaysLowElement.innerHTML = Math.round(
+    response.data.daily[0].temperature.minimum
+  );
   forecast.forEach(function (dailyForecast, index) {
     if (index > 0) {
       forecastHTML =
@@ -46,15 +53,15 @@ function displayForecast(response) {
           dailyForecast.condition.icon
         }.png"
         alt=""
-        width="42px"
+        width="50px"
         />
         <div class="weather-forecast-temp">
         <span class="weather-forecast-temp-high"> ${Math.round(
           dailyForecast.temperature.maximum
         )}° </span>
-        <span class="weather-forecast-temp-low"> ${Math.round(
+        <div class="weather-forecast-temp-low"> ${Math.round(
           dailyForecast.temperature.minimum
-        )}° </span>
+        )}° </div>
         </div>
         </div>`;
     }

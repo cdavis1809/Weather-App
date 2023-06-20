@@ -1,15 +1,21 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #8fd0d0;
 }
-
 h1 {
-  color: #5d5c5c;
+  text-align: center;
+  padding: 5px;
+  font-family: monospace;
+  line-height: 40px;
+}
+h2 {
+  color: #252828;
   font-size: 24px;
   font-weight: 100;
   height: 27px;
   line-height: 29px;
   text-align: left;
-  margin-bottom: 0;
+  margin-bottom: 2;
 }
 ul {
   margin: 0;
@@ -19,7 +25,7 @@ li {
   color: #494a4a;
   font-size: 16px;
   font-weight: 100;
-  line-height: 19px;
+  line-height: 25px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -29,32 +35,39 @@ li:first-letter {
 }
 a {
   text-decoration: none;
-  color: #313aec;
+  color: #4360e5;
+}
+.btn {
+  background-color: #05a1a1;
+  border: 1px solid #05a2a2;
+}
+.btn hover {
+  background-color: #016363;
 }
 .weather-app-wrapper {
   margin: 30px auto;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .overview {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .weather-app {
-  border: 1.5px solid #a7aaaa;
-  border-radius: 6px;
-  padding: 20px;
+  border: 1.5px solid #037878;
+  border-radius: 10px;
+  padding: 30px 30px;
 }
 .weather-forecast {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
 }
 .weather-forecast-date {
   font-size: 16px;
-  color: #5b5d5d;
+  color: #303434;
 }
 .weather-forecast-temp {
   font-size: 13px;
-  color: #5b5d5d;
+  color: #303434;
 }
 .weather-forecast-temp-low {
   opacity: 0.7;

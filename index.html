@@ -18,6 +18,7 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
+          <h1>Weather App</h1>
           <form id="search-form" class="mb-3">
             <div class="row">
               <div class="col-9">
@@ -39,7 +40,7 @@
             </div>
           </form>
           <div class="overview">
-            <h1 id="city"></h1>
+            <h2>📍<span id="city"></span></h2>
             <ul>
               <li>Updated: <span id="date"></span></li>
               <li id="description"></li>
@@ -65,8 +66,10 @@
             </div>
             <div class="col-6">
               <ul>
-                <li>Humidity: <span id="humidity"></span> %</li>
-                <li>Wind Speed: <span id="wind-speed"></span> m/h</li>
+                <li>💦 Humidity: <span id="humidity"></span> %</li>
+                <li>🌬 Wind Speed: <span id="wind-speed"></span> m/h</li>
+                <li>↑ Today's High: <span id="today-max"> </span> °F</li>
+                <li>↓ Today's Low: <span id="today-min"></span> °F</li>
               </ul>
             </div>
           </div>
